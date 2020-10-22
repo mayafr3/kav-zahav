@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+   <meta charset="utf-8">
+	<!-- <script src="js/app.js"></script> -->
+  <script src="js/database.js"></script>
+  <script src="js/meeting.js"></script>
+  <script src="js/app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+  <script src="https://meet.jit.si/external_api.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.1.0/rxjs.umd.js"></script>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Heebo" />
+    <script>
+    window.onload = () => {
+      initializeDB();
+      initializeMeetingPage();
+    }
+    </script>
+    <header>
+    <title>קו זהב - פגישה</title>
+    </header>
+</head>
+ <!-- style = "height: 5vh;" -->
+<body style="font-weight: bold;background: #D2F2F7; font-family: Heebo; ">
+  <div class="header" style="font-family: Heebo">
+  <a href="openning_page.html" class="headerlogo" style="color:white; right: 10px;">-קו</a>  <a href="openning_page.html" class="headerlogo" style="color:#FFDF01; right: 40px;">זהב</a>
+    <div class="header-right">
+      <a href="#about" onclick="open_help_window()" style="color:white;">עזרה</a>
+      <!-- <img src="https://image.flaticon.com/icons/svg/149/149995.svg" class = "img-class" onclick="openNav()" > -->
+        <div id= "over" style="display:None"></div>
+    <div  id="help_window" style="display:None"> 
+      <img src="https://cdn2.iconfinder.com/data/icons/filled-icons/493/x-512.png" style="width:25px;height:25px;  position: fixed; left:59%;" onclick="close_help_window()">
+      <br>
+      <div id="help_headline" style="font-size:30px;"> נשמח לסייע טלפונית!</div> 
+      <br>
+      <label class = "help_lable" for="phone">מספר טלפון:</label>
+      <input type="text" id="help_phone" name="phone"><br><br>
+      <button class = "msg_send_btn" onclick="helpMessage()"> שלח </button>
+      <button id="close_help" class="msg_send_btn" style="left: 40%; top: 60%" onclick="close_help_window()"> ביטול </button>
+    </div> 
+
+  </div>
+  <!-- <div id="meetingHeader"> -->
+  <!-- <a href="openning_page.html" class="headerlogo" style="color:white; right: 15px;">קו-</a>  <a href="openning_page.html" class="headerlogo" style="color:#FFDF01; right: 40px;">זהב</a>
+  <div class="header-right">
+    <a href="#about" onclick="open_help_window()">עזרה</a>
+    <a  href="old_first.html">דף הבית </a>
+    <div id= "over" style="display:None"></div>
+    <div  id="help_window" style="display:None"> 
+      <h2 id="help_headline"> נשמח לסייע טלפונית!</h2> 
+      <label class = "help_lable" for="phone">מספר טלפון:</label>
+      <input type="text" id="help_phone" name="phone"><br><br>
+      <button class = "msg_send_btn" onclick="helpMessage()"> שליחת הודעה</button>
+      <button id="close_help" class="msg_send_btn" style="left: 40%; top: 57%" onclick="close_help_window()"> ביטול </button>
+    </div></div> -->
+
+    </div>
+      <div class="space"></div>
+  <div class="space"></div>
+    <div class="space"></div>
+  <div class="space"></div>
+
+<div id="jitsi"></div>
+<div id="meetingCard"></div>
+
+</body>
+</html>

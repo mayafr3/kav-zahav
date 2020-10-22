@@ -1,0 +1,268 @@
+<html>
+<head>
+   <title>קו זהב - ערוך פגישה</title>
+	<link rel="stylesheet" href="css/styles.css" />
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+  <script src="js/database.js"></script>
+	<script src="js/app.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Amatic+SC" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Heebo" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.1.0/rxjs.umd.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    window.onload = () => {
+      initializeDB();
+      initializeComponentsElders();
+    }
+    </script>
+    
+
+</head>
+ <!-- <script>
+  window.addEventListener("load", function load(event){
+  window.removeEventListener("load", load, false); //remove listener, no longer needed
+    getTheDate(1);
+    getTheDate(2);
+    getTheDate(3);
+    getTheDate(4);
+    getTheDate(5);
+    getTheDate(6); 
+    getTheDate(7); 
+
+  },false); 
+  </script> -->
+<script src="https://code.angularjs.org/1.4.8/angular.js"></script>
+<script>angular.module('demo', []);</script>
+<body dir="rtl" style="background: #D2F2F7; font-family: Heebo; text-align: center;font-weight: bold;">
+  <!-- <div class="rectangle"> -->
+
+  <div ng-app="demo">
+  <div ng-controller ="press">
+  <div class="header">
+  <a href="#TryBubble.html" class="headerlogo" style="color:white; right: 15px;">קו-</a>  <a href="#TryBubble.html" class="headerlogo" style="color:#FFDF01; right: 40px;">זהב</a>
+  <div class="header-right">
+    <a onclick=""> התנתקות</a>
+    <a href="#about" onclick="open_help_window()">עזרה</a>
+    <!-- <a  href="old_first.html">דף הבית </a> -->
+    <a class="active" href="maya.html">קביעת פגישה</a>
+    <a id="welcome_user" style="color:white;"></a>
+
+
+    <!-- <img src="https://image.flaticon.com/icons/svg/149/149995.svg" class = "img-class" onclick="openNav()" > -->
+    <a></a>
+    <div id= "over" style="display:None"></div>
+    <div  id="help_window" style="display:None"> 
+      <img src="https://cdn2.iconfinder.com/data/icons/filled-icons/493/x-512.png" style="width:25px;height:25px;  position: fixed; left:59%;" onclick="close_help_window()">
+      <br>
+      <div id="help_headline" style="font-size:30px;"> נשמח לסייע טלפונית!</div> 
+      <br>
+      <label class = "help_lable" for="phone">מספר טלפון:</label>
+      <input type="text" id="help_phone" name="phone"><br><br>
+      <button class = "msg_send_btn" onclick="helpMessage()"> שלח </button>
+      <button id="close_help" class="msg_send_btn" style="left: 40%; top: 60%" onclick="close_help_window()"> ביטול </button>
+    </div>
+  </div>
+  </div>
+  <script>
+    
+    angular.module('demo',[])
+    .controller('press', function ($scope) {
+    $scope.press_button1 = function press_button1(q, newId)
+    {
+      if (q == 1)
+      {
+        if (localStorage.getItem(1) != null)
+        {
+          document.getElementById("1" + localStorage.getItem(1)).className = "prettyButton";
+        }
+        localStorage.setItem(1, newId);
+        document.getElementById("1" + newId).className+=" active1";
+
+      }
+
+      else if (q == 3)
+      {
+          if (localStorage.getItem(3) != null)
+        {
+          document.getElementById("3" + localStorage.getItem(3)).className = "prettyButton";
+        }
+        localStorage.setItem(3, newId);
+        document.getElementById("3" + newId).className+=" active1";
+
+      }
+
+      else if (q == 2)
+      {
+         if (localStorage.getItem(2) != null)
+        {
+          document.getElementById(parseInt(localStorage.getItem(2))).className = "prettyButton";
+        }
+        localStorage.setItem(2, newId);
+        document.getElementById(newId).className+=" active1";
+
+      }
+        
+    }
+$scope.getTheDate = function getTheDate(day)
+{
+  var today = new Date();
+  var thisDay = today.getDay() + 1;
+  var increment;
+  var year = today.getFullYear();
+  var month = today.getMonth() + 1;
+  var date = today.getDate();
+
+  if (thisDay <= day)
+  {
+    increment = day - thisDay;
+  }
+  else
+  {
+    increment = (7 - thisDay) + day;
+
+  }
+
+  date = date + increment;
+  if (month == 1 || month == 3 || month == 7 || month == 8 || month == 10 || month == 12)
+  {
+    if (date > 31)
+    {
+      date = date - 31;
+      month++;
+      if (month == 13)
+      {
+        month = 1;
+        year++;
+      }
+    }
+  }
+  else if (month == 2)
+  {
+    if (date > 29)
+    {
+      date = date - 29;
+      month++;
+    }
+  }
+  else
+  {
+    if (date > 30)
+    {
+      date = date - 30;
+      month++;
+    }
+  }
+
+  var finalDate = " - "+date+'.'+month;
+
+  //put in the right element
+ 
+  // document.getElementById(day).textContent+=finalDate;
+  return finalDate;
+  
+}
+$scope.open_other = function open_other()
+  {
+    document.getElementById("other_sub").style.display = "block";
+  }
+$scope.open_other1 = function open_other1()
+{
+  document.getElementById("other_sub1").style.display = "block";
+}
+$scope.open_other_time = function open_other_time()
+  {
+    document.getElementById("other_time").style.display = "block";
+  }
+  });  
+    
+  </script>
+  <div class="space"></div>
+  <div class="space"></div>
+  <div class="space1" ></div>
+  <div class="space1" ></div>
+  <div class="space1" ></div>
+  <!-- <div id="header"></div> -->
+  <div class="container">  
+    <h1 class="header_page" style="color: white; font-size: 50px; color:black;">שינוי פגישה</h1>
+    <div class="main">
+    <br>
+    <div class= "list_contain_q">
+      <div class="queution_1">
+        <div class="q1" style=" color: black; font-size: 30px;   line-height: 1.6;"><img class="sidepic" src="https://cdn3.iconfinder.com/data/icons/startups-color/64/matter-idea-think-focus-topic-512.png"></img>  נושא הפגישה<img class="sidepic" src="https://cdn3.iconfinder.com/data/icons/startups-color/64/matter-idea-think-focus-topic-512.png"></img></div>
+          <button id="11" class="prettyButton" ng-click="i = 1;press_button1(1, '1')" ng-init="button1 = 'בישול'">{{ button1 }}</button>
+          <button id='12' class="prettyButton" ng-click="i = 2;press_button1(1, '2')" ng-init="button2 = 'מוזיקה'">{{ button2 }}</button>
+          <button id='13' class="prettyButton" ng-click="i = 3; press_button1(1, '3')" ng-init="button3 = 'היסטוריה'">{{ button3 }}</button>
+          <button id='14' class="prettyButton" ng-click="i = 4; press_button1(1, '4')" ng-init="button4 = 'ספורט'">{{ button4 }}</button>
+          <button id='15' class="prettyButton" ng-click="i = 5; press_button1(1, '5'); open_other()" ng-init="button5 = 'אחר'">{{ button5 }}</button>
+            <form>
+              <input id ="other_sub" type="text" class="other" style="display:None" ng-model='title' ng-change="button5=title">
+            </form>
+        </div>
+        <div class="queution_2">
+       
+        <div class="q2" style="color: black; font-size: 30px"> <img class="sidepic" src="https://image.flaticon.com/icons/svg/313/313078.svg"></img>יום הפגישה<img class="sidepic" src="https://image.flaticon.com/icons/svg/313/313078.svg"></img></div>
+          <button id =1 class="prettyButton1" ng-click="j = 12; press_button1(2, 1)" ng-init="button12 = 'ראשון ' + getTheDate(1);">{{ button12 }}</button>
+          <button id =2 class="prettyButton1" ng-click="j = 22; press_button1(2, 2)" ng-init="button22 = 'שני' + getTheDate(2);">{{ button22 }}</button>
+          <button id =3 class="prettyButton1" ng-click="j = 32; press_button1(2, 3)" ng-init="button32 = 'שלישי' + getTheDate(3);">{{ button32 }}</button>
+          <button id =4 class="prettyButton1" ng-click="j = 42; press_button1(2, 4)" ng-init="button42 = 'רביעי' + getTheDate(4);">{{ button42 }}</button>
+          <button id =5 class="prettyButton1" ng-click="j = 52; press_button1(2, 5)" ng-init="button52 = 'חמישי' + getTheDate(5);">{{ button52 }}</button>
+          <button id =6 class="prettyButton1" ng-click="j = 62; press_button1(2, 6)" ng-init="button62 = 'שישי' + getTheDate(6);">{{ button62 }}</button>
+          <button id =7 class="prettyButton1" ng-click="j = 72; press_button1(2, 7)" ng-init="button72 = 'שבת' + getTheDate(7);">{{ button72 }}</button>
+          <br></br>
+        </div>
+        <div class="queution_3">
+        <div class="q3" style="color: black; font-size: 30px"><img class="sidepic" src="https://cdn2.iconfinder.com/data/icons/user-interface-basics-1/512/BI_054_clock-512.png"></img>     שעת הפגישה    <img class="sidepic" src="https://cdn2.iconfinder.com/data/icons/user-interface-basics-1/512/BI_054_clock-512.png"></img></div>
+            <button id='31'  class ="prettyButton" ng-click="k = 123; press_button1(3, '1')" ng-init="button123 = '16:00'">{{ button123 }}</button>
+            <button id='32' class="prettyButton" ng-click="k = 223; press_button1(3, '2')" ng-init="button223 = '17:00'">{{ button223 }}</button>
+            <button id='33' class="prettyButton" ng-click="k = 323; press_button1(3, '3')" ng-init="button323 = '18:00'">{{ button323 }}</button>
+            <button id='34' class="prettyButton" ng-click="k = 423; press_button1(3, '4')" ng-init="button423 = '19:00'">{{ button423 }}</button>
+            <button id='35' class="prettyButton" ng-click="k = 523; press_button1(3, '5')" ng-init="button523 = '20:00'">{{ button523 }}</button>
+            <!-- <button id='36' class="prettyButton" ng-click="k = 623; press_button1(3, '6'); open_other_time()" ng-init="button623 = 'אחר'">{{ button623 }}</button> -->
+            <button id='36' class="prettyButton" ng-click="k = 623; press_button1(3, '6'); open_other1()" ng-init="button623 = 'אחר'">{{ button623 }}</button>
+            <form>
+              <input id ="other_sub1" type="text" class="other1" style="display:None" ng-model='title1' ng-change="button623=title1">
+
+              <!-- <input  id ="other_time" type="time" class="other_time" style="display:None" ng-model='time' ng-change="button623=time"> -->
+            </form>
+    
+        <div class="queution_4">
+          <br>
+          <div class="q4" style="color: black; font-size: 30px">פרטים נוספים שתרצה לספר?</div>
+          	<div id="inputnav">
+                <textarea id="iPf" style="width:300px; height:70px;"></textarea>
+            </div>
+        </div>
+        </div>
+        <button  id="appoint" value="שנה פרטי פגישה " onclick="ChangeMeeting(DayBtn.value, hourbtn.value, iPf.value, topicbtn.value)" >שנה פרטי מפגש </button>
+
+        <br><br>
+        <br></br>
+          <div style="font-size: 30px" id="oPf">
+            </div>
+          <br><br>
+          <p class="sumamry" id = "sumamry_id" style="display:None;  displaycolor: black; font-size: 20px; text-align: right;"> הפגישה תתקיים בנושא <input type="text" id = "topicbtn" value="this['button' + i]" ng-model="this['button' + i]" placeholder="נושא הפגישה"vstyle="color: black; font-size: 20px"> ,ביום  <input type="text" id="DayBtn" value="this['button' + j]" ng-model="this['button' + j]" placeholder="יום הפגישה" style="color: black; font-size: 20px"> ,בשעה <input type="text" id = "hourbtn" value="this['button' + k]" ng-model="this['button' + k]" placeholder="זמן הפגישה"></p> 
+    </div>
+        </div>
+    </div>
+  
+    <script type="text/javascript">function fn(){
+    var inPuttext = document.getElementById("iPf").value;
+    document.getElementById("oPf").innerHTML = inPuttext;
+    }</script>
+  </div>
+  </div>
+  </body>
+  </html>
+
+        
+

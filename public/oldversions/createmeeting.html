@@ -1,0 +1,90 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="css/styles.css" />
+	
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+  <script src="js/database.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Amatic+SC" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.1.0/rxjs.umd.js"></script>
+  <meta charset="utf-8" />
+
+
+</head>
+<script src="https://code.angularjs.org/1.4.8/angular.js"></script>
+<script>angular.module('demo', []);</script>
+<body dir="rtl" style="background: #FFDF01; font-family: Amatic SC; text-align: center;font-weight: bold;">
+      <!-- <script>
+    run();
+  </script> -->
+  <div ng-app="demo">
+  <div id="header"></div>
+  <div class="container">  
+    <h1 class="header_page" style="color: white; font-size: 100px"><img class="upsidepic" src="https://i.pinimg.com/originals/ac/93/51/ac93515757772efecf9e0a1701fb880d.jpg"> קביעת פגישה <img class="upsidepic" src="https://i.pinimg.com/originals/ac/93/51/ac93515757772efecf9e0a1701fb880d.jpg"></h1>
+    <div class="rectangle"></div>
+    <div class="main">
+    <p class="explain" style="color: black; font-size: 60px">- קבע פגישה לשיחה עם סטודנט בכל נושא, ביום ובשעה המתאימים לך <br>בכל שאלה , לחץ על הכפתור עם התשובה המתאימה לך- </p>
+    <p class="explain" style="color: white; font-size: 60px">לעזרה - לחץ על כפתור "עזרה" בקצה השמאלי העליון במסך.</p>
+    <div class= "list_contain_q">
+      <div class="queution_1">
+        <div class="q1" style="color: black; font-size: 50px"><img class="sidepic" src="https://cdn3.iconfinder.com/data/icons/startups-color/64/matter-idea-think-focus-topic-512.png"></img>    על איזה נושא תרצה לשוחח?    <img class="sidepic" src="https://cdn3.iconfinder.com/data/icons/startups-color/64/matter-idea-think-focus-topic-512.png"></img></div>
+          <button class="prettyButton" ng-click="i = 1" ng-init="button1 = 'בישול'">{{ button1 }}</button>
+          <button class="prettyButton" ng-click="i = 2" ng-init="button2 = 'מוזיקה'">{{ button2 }}</button>
+          <button class="prettyButton" ng-click="i = 3" ng-init="button3 = 'היסטוריה'">{{ button3 }}</button>
+          <button class="prettyButton" ng-click="i = 4" ng-init="button4 = 'ספורט'">{{ button4 }}</button>
+        <br></br>
+        </div>
+        <div class="queution_2">
+       
+        <div class="q2" style="color: black; font-size: 50px"> <img class="sidepic" src="https://image.flaticon.com/icons/svg/313/313078.svg"></img>    באיזה יום תרצה לקבוע את הפגישה?    <img class="sidepic" src="https://image.flaticon.com/icons/svg/313/313078.svg"></img></div>
+          <button class="prettyButton" ng-click="j = 12" ng-init="button12 = 'ראשון'">{{ button12 }}</button>
+          <button class="prettyButton" ng-click="j = 22" ng-init="button22 = 'שני'">{{ button22 }}</button>
+          <button class="prettyButton" ng-click="j = 32" ng-init="button32 = 'שלישי'">{{ button32 }}</button>
+          <button class="prettyButton" ng-click="j = 42" ng-init="button42 = 'רביעי'">{{ button42 }}</button>
+          <button class="prettyButton" ng-click="j = 52" ng-init="button52 = 'חמישי'">{{ button52 }}</button>
+          <button class="prettyButton" ng-click="j = 62" ng-init="button62 = 'שישי'">{{ button62 }}</button>
+          <button class="prettyButton" ng-click="j = 72" ng-init="button72 = 'שבת'">{{ button72 }}</button>
+          <br></br>
+        </div>
+        <div class="queution_3">
+        <div class="q3" style="color: black; font-size: 50px"><img class="sidepic" src="https://cdn2.iconfinder.com/data/icons/user-interface-basics-1/512/BI_054_clock-512.png"></img>    באיזה שעה תרצה לקבוע את הפגישה?    <img class="sidepic" src="https://cdn2.iconfinder.com/data/icons/user-interface-basics-1/512/BI_054_clock-512.png"></img></div>
+            <button  class ="prettyButton" ng-click="k = 123" ng-init="button123 = '16:00'">{{ button123 }}</button>
+            <button class="prettyButton" ng-click="k = 223" ng-init="button223 = '17:00'">{{ button223 }}</button>
+            <button class="prettyButton" ng-click="k = 323" ng-init="button323 = '18:00'">{{ button323 }}</button>
+            <button class="prettyButton" ng-click="k = 423" ng-init="button423 = '19:00'">{{ button423 }}</button>
+            <button class="prettyButton" ng-click="k = 523" ng-init="button523 = '20:00'">{{ button523 }}</button>
+          <br></br>
+          <br></br>
+        </div>
+        <div class="summary_container" style="color: black; font-size: 50px">פרטי הפגישה</div>
+        <br></br>
+          <form action="maya2.html"/>
+          <p class="sumamry" id = "sumamry_id" style="color: black; font-size: 40px; text-align: right;"> הפגישה תתקיים בנושא <input type="text" id = "topicbtn" value="this['button' + i]" ng-model="this['button' + i]" placeholder="נושא הפגישה"vstyle="color: black; font-size: 40px"> ,ביום  <input type="text" id="DayBtn" value="this['button' + j]" ng-model="this['button' + j]" placeholder="יום הפגישה" style="color: black; font-size: 40px"> ,בשעה <input type="text" id = "hourbtn" value="this['button' + k]" ng-model="this['button' + k]" placeholder="זמן הפגישה"></p>
+          <br></br>
+          <button id="appoint" type="submit" value="קבע פגישה"  style = "font-size:30px;"onclick="newMeeting(1, 20:00, chauk , hfjf);"/>קבע פגישה</button></form>
+          <br></br>
+        </div>
+  
+
+   <!-- <script>
+    document.getElementById("appoint").addEventListener('click', new_meeting.bind(null, document.getElementById("topicbtn").value));
+    document.getElementById("topicbtn").placeholder=localStorage.getItem("subject");
+    document.getElementById("DayBtn").placeholder=localStorage.getItem("day");
+    document.getElementById("hourbtn").placeholder=localStorage.getItem("hour");
+   </script> -->
+  </div>
+  </div>
+  <div id="footer"></div>
+  </body>
+  </html>
+
+        
+

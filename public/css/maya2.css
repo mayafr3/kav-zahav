@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+.container{
+  height: 100%;
+  width: 100%;
+  background: white
+}
+.header_page{
+  color:black
+  }
+.inner{
+      display: inline-block;
+}
+/* .rectangle{
+  
+position: absolute;
+width: 700px;
+height: 900px;
+left: calc(50% - 600px/2 + 300px);
+top: 0px;
+
+background: #51DACF;
+} */
+.main{
+  width: 100%
+}

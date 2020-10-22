@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Heebo" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+  <script src="js/database.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.1.0/rxjs.umd.js"></script>
+<!-- jj
+  //<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  //<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  //<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  -->
+  <!-- <script>
+    window.onload = () => {studentInit(document.getElementById("allmeeting"))}
+    </script> 
+    זה מה שמקשר לטעינה של כל המער בכל ריפרש-->
+</head>
+<header>
+  <title>קו זהב - קבע פגישה</title>
+
+  <script>
+    window.onload = () => {
+      initializeDB();
+      check_student_sign();
+      initializeComponentsStudents();
+      displayAllMeetings();
+      welcome_user_student();
+    }
+    </script>
+</header>
+
+<body dir="rtl" style="background: #D2F2F7; font-family:Heebo; text-align: center; font-weight: bold;">
+  <div class="header" style="font-family: Heebo">
+  <a href="openning_page.html" class="headerlogo" style="color:white; right: 15px;">קו-</a>  <a href="openning_page.html" class="headerlogo" style="color:#FFDF01; right: 40px;">זהב</a>
+    <div class="header-right">
+      <a  href="" onclick="googleSignOut()">התנתקות</a>
+      <a class="active" href="Adi1.html">קביעת פגישה </a>
+      <a href="student_page.html">הפגישות שלי</a>
+      <!-- <a href="student_first.html">דף הבית</a> -->
+      <!-- <img src="https://image.flaticon.com/icons/svg/149/149995.svg" class = "img-class" onclick="openNav()" > -->
+      <a id="welcome_user" style="color:white;"></a>
+    </div>
+    </div>
+  <div class="space"></div>
+  <div class="space"></div>
+  <div class="space"></div>
+  <div class="space"></div>
+  <div class="container">  
+    <h1 class="header_page" style="color: white; font-size: 50px; color:black;">פגישות עתידיות</h1>
+    <h3 class="header_page" style="color: white; font-size: 20px; color:black;">חברי הקהילה שלנו קבעו את הפגישות הבאות ומחכים שתאשרו הגעה.<br>  שימו לב: לאחר לחיצה על "קבע פגישה", המארחים יראו שאישרתם הגעה.</h3>
+  </div>
+<!-- all meetings -->
+  <div class="space"></div>
+
+  <div id="allmeeting" class="container pt-3"></div>
+ <!-- <div class="card text-right w-75 bg-light mb-3 cardstyle">
+    <div class="cardheader">
+      <h3 class="card-title cardheader">בישול עם חנה</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+      <div class="col-sm-2"></div>
+      <p class="card-text cardinner col-sm-4">ביום: רביעי</p>
+      <p class="card-text cardinner col-sm-4">בשעה: 18:00</p>
+      <div class="col-sm-2"></div>
+      </div>
+     
+      <p class="card-text cardinner">פרטים: חנה בת 82, ילידת ירושלים ואוהבת מאוד לבשל וטריוויה</p>
+      <div class="row">
+        <div class="col-sm-5"> </div>
+     <button class="prettyButton col-sm-2" onclick="chang_button()">קבע פגישה</button>
+     <div class="col-sm-5"> </div>
+      </div>
+    </div>
+  </div>
+
+   <div class="card text-right w-75 bg-light mb-3 cardstyle">
+    <div class="cardheader">
+      <h3 class="card-title cardheader">ספורט עם דוד</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+      <div class="col-sm-2"></div>
+      <p class="card-text cardinner col-sm-4">ביום: חמישי</p>
+      <p class="card-text cardinner col-sm-4">בשעה: 16:00</p>
+      <div class="col-sm-2"></div>
+      </div>
+     
+      <p class="card-text cardinner">פרטים: דוד בן 70, היה ספורטאי מצטיין וייצג את ישראל בתחרויות ריצה ואתלטיקה</p>
+      <div class="row">
+        <div class="col-sm-5"> </div>
+     <button class="prettyButton col-sm-2">קבע פגישה</button>
+     <div class="col-sm-5"> </div>
+      </div>
+    </div>
+  </div>
+
+     <div class="card text-right w-75 bg-light mb-3 cardstyle">
+    <div class="cardheader">
+      <h3 class="card-title cardheader">מוזיקה עם בלה</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+      <div class="col-sm-2"></div>
+      <p class="card-text cardinner col-sm-4">ביום: שני</p>
+      <p class="card-text cardinner col-sm-4">בשעה: 17:00</p>
+      <div class="col-sm-2"></div>
+      </div>
+     
+      <p class="card-text cardinner">פרטים: בלה הייתה זמרת בעברה, היא מעבירה שיעורי פיתוח קול לכל מי שרוצה</p>
+      <div class="row">
+        <div class="col-sm-5"> </div>
+     <button class="prettyButton col-sm-2">קבע פגישה</button>
+     <div class="col-sm-5"> </div>
+      </div>
+    </div>
+  </div> -->
+    <div class="triangle-up1"></div>
+    <div class="triangle-up21"></div>
+    <!-- <div class="triangle-up31"></div> -->
+    <div class="triangle-up41"></div>
+    <!-- <div class="triangle-up51"></div> -->
+    <div class="triangle-up6" ></div>
+    <div class="triangle-up71"></div>
+    <div class="triangle-up8"></div>
+    <div class="triangle-up9"></div>
+    <div class="triangle-up101"></div>
+    <div class="triangle-up11"></div>
+  
+</body>
+</html>

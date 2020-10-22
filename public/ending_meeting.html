@@ -1,0 +1,86 @@
+
+<html>
+<head>
+ <title>קו זהב - סיום פגישה</title>
+ <link rel="stylesheet" href="css/styles.css" />
+ <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Heebo" />
+ <script src="js/app.js"></script>
+ <script src="js/meeting.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+ <script src="js/database.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta charset="utf-8" />
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.1.0/rxjs.umd.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    window.onload = () => {
+      initializeDB();
+      initializeComponentsElders();
+    }
+    </script>
+</head>
+<body class="hey" dir="rtl" style="background: #D2F2F7; font-family: Heebo; text-align: center;font-weight: bold;" >
+  <div class="header">
+  <a href="#TryBubble.html" class="headerlogo" style="color:white; right: 15px;">קו-</a>  <a href="#TryBubble.html" class="headerlogo" style="color:#FFDF01; right: 40px;">זהב</a>
+  <div class="header-right">
+    <a href="#about" onclick="open_help_window()">עזרה</a>
+    <a  href="old_first.html">דף הבית </a>
+    <a  href="meeting.html">חזרה לפגישה</a>
+    <div id= "over" style="display:None"></div>
+    <div  id="help_window" style="display:None"> 
+      <img src="https://cdn2.iconfinder.com/data/icons/filled-icons/493/x-512.png" style="width:25px;height:25px;  position: fixed; left:59%;" onclick="close_help_window()">
+      <br>
+      <div id="help_headline" style="font-size:30px;"> נשמח לסייע טלפונית!</div> 
+      <br>
+      <label class = "help_lable" for="phone">מספר טלפון:</label>
+      <input type="text" id="help_phone" name="phone"><br><br>
+      <button class = "msg_send_btn" onclick="helpMessage()"> שלח </button>
+      <button id="close_help" class="msg_send_btn" style="left: 40%; top: 60%" onclick="close_help_window()"> ביטול </button>
+    </div>
+  </div>
+  </div>
+  <div class="space"></div>
+  <div class="space"></div>
+  <div class="rectangle">
+
+  <div class="container">
+    <h1 class="header_page" style="color: white; font-size: 50px; color:black;"> הסתיימה הפגישה </h1>
+    <img class="end_img1" src="https://images.pexels.com/photos/3831612/pexels-photo-3831612.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="danding_grand">
+    <img class="end_img2" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="danding_grand">
+
+    <!-- <input type="image" src="images/OMER.png" class="student_png" style="left: 53%; top:30%; height: 200; width: 150;" />
+    <input type="image" src="images/woman-taking-selfie-2050979.jpg" class="student_png" style="left: 35%; top:30%; height: 200; width: 150;" /> -->
+    <div class="space"></div>
+    <div class="space"></div>
+    <div class="space"></div>
+    <div class="space"></div>
+    <div class="space"></div>
+    <div class="etriangle-up1"></div>
+    <div class="etriangle-up2"></div>
+    <div class="etriangle-up3"></div>
+    <div class="etriangle-up4"></div>
+    <div class="etriangle-up5"></div>
+    <div class="etriangle-up6"></div>
+    <div class="etriangle-up7"></div>
+    <div class="etriangle-up8"></div>
+    <div class="etriangle-up9"></div>
+    <div class="etriangle-up10"></div>
+    <div class="etriangle-up11"></div>
+    <div class="etriangle-up12"></div>
+
+    <p> אם  הפגישה הסתיימה בטעות , לחץ על הכפתור "חזרה לפגישה"</p>
+    <script>
+      var meetingId = getQueryVariable("id");
+      </script>
+
+
+<button class="prettyButton2" style="font-family: Heebo;" onclick='window.history.back()'> חזרה לפגישה</button>
+    <!-- <button class="prettyButton2" style="font-family: Heebo;" onclick="location.href = 'meeting.html?id='+meetingId"> חזרה לפגישה</button> -->
+    <button class="prettyButton2" style="font-family: Heebo;"  onclick="location.href = 'openning_page.html'">דף הבית</button>
+  </div>
+</body>
+</html>

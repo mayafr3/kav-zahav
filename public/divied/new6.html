@@ -1,0 +1,40 @@
+<html>
+<head>
+ <title>new</title>
+ <link rel="stylesheet" href="css/styles.css" />
+ <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Amatic+SC" />
+ <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+  <script src="js/database.js"></script>
+ <script src="js/app.js"></script>
+ <meta charset="utf-8" />
+ <script>
+    window.onload = () => {
+      initializeDB();
+      initializeComponentsElders();
+    }
+    </script>
+</head>
+<body dir="rtl" style="background: #D2F2F7; text-align: center;" >
+  <div class="header_new">
+    <img class = "back" src="images/back.jpg">
+    <button class="button_back" onclick="goBack()">חזור </button>
+    <button class="button_new_help">עזרה </button>
+  </div>
+  <div>
+    <p class="new_qu" style="left: 34%; font-size: 80px;">סיכום פרטי הפגישה:</p>
+  </div>
+  <div>
+    <div class="sum" style="position: fixed; top: 30%; left: 80%;">נושא הפגישה:</div><button class="option_button" style="position: fixed; top: 30%; left: 67%;" onclick="location.href = 'new8.html'"> היסטוריה </button>
+     <div class="sum" style="position: fixed; top: 30%; left: 55%;">תאריך:</div><button class="option_button" style="position: fixed; top: 30%; left: 32%; width: 280px;" onclick="location.href = 'new9.html'"> יום רביעי 12/06 </button>
+     <div class="sum" style="position: fixed; top: 30%; left: 23%;">שעה:</div><button class="option_button" style="position: fixed; top: 30%; left: 10%;" onclick="location.href = 'new10.html'">16:00 </button>
+      <div class="sum" style="position: fixed; top: 50%; left: 75%;">פרטים נוספים:</div><textarea class= "more_sum">היי, שמי חנה ואני עליתי מרוסיה לפני 10 שנים, חשוב לי לספר את הסיפור שלי לדור הצעיר.</textarea>
+  <div>
+  <div>
+    <p class="change">*לשינוי אחד מפרטי הפגישה, לחץ עליו</p>
+    <p class="help_text">- לעזרה לחץ על כפתור 'עזרה' בפינה השמאלית למעלה - </p>
+    <button class="next_new"onclick="location.href = 'new7.html'"> המשך </button>
+  </div>
+</body>
+</html>

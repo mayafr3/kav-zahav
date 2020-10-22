@@ -1,0 +1,110 @@
+
+<html>
+<head>
+ <title>קו זהב - הפגישה הבאה שלי</title>
+ <link rel="stylesheet" href="css/styles.css" />
+ <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Heebo" />
+ <script src="js/app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+ <script src="js/database.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta charset="utf-8" />
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.1.0/rxjs.umd.js"></script>
+  <script>
+    window.onload = () => {
+      initializeDB();
+      check_elderly_sign();
+      initializeComponentsElders();
+      initializeElderMeetingPageNew();
+      welcome_user_elderly();
+
+    }
+    </script>
+</head>
+<body class="hey" dir="rtl" style="background: #D2F2F7; font-family: Heebo; text-align: center;font-weight: bold;" >
+  <div class="rectangle">
+  <div class="header">
+  <a href="openning_page.html" class="headerlogo" style="color:white; right: 15px;">קו-</a>  <a href="openning_page.html" class="headerlogo" style="color:#FFDF01; right: 40px;">זהב</a>
+  <div class="header-right">
+    <a onclick="sign_out()"> התנתקות</a>
+    <a href="#about" onclick="open_help_window()">עזרה</a>
+    <!-- <a  href="old_first.html">דף הבית </a> -->
+    <a class="active" href="hostView.html">הפגישה הבאה שלי</a>
+    <!-- <img src="https://image.flaticon.com/icons/svg/149/149995.svg" class = "img-class" onclick="openNav()" > -->
+    <a id="welcome_user" style="color:white;"></a>
+      
+       <div id= "over" style="display:None"></div>
+    <div  id="help_window" style="display:None"> 
+      <img src="https://cdn2.iconfinder.com/data/icons/filled-icons/493/x-512.png" style="width:25px;height:25px;  position: fixed; left:59%;" onclick="close_help_window()">
+      <br>
+      <div id="help_headline" style="font-size:30px;"> נשמח לסייע טלפונית!</div> 
+      <br>
+      <label class = "help_lable" for="phone">מספר טלפון:</label>
+      <input type="text" id="help_phone" name="phone"><br><br>
+      <button class = "msg_send_btn" onclick="helpMessage()"> שלח </button>
+      <button id="close_help" class="msg_send_btn" style="left: 40%; top: 60%" onclick="close_help_window()"> ביטול </button>
+    </div>
+  </div>
+  </div>
+  <div class="space"></div>
+  <div class="space"></div>
+  <div class="space"></div>
+  <div class="space"></div>
+  <div class="space"></div>
+
+  <!-- <h1 class="header_page" style="color: white; font-size: 100px"> קבעת פגישה </h1> -->
+  <!-- <div class="old_header">הפגישה תתקיים ביום <span id="day" class="old_header"> </span><span class="old_header"> בשעה </span><span id="hour" class="old_header"></span><span class="old_header"> בנושא</span> <span id="subject" class="old_header"></span></div> -->
+  <br>
+  <div id="myMeeting"></div>
+  <!-- <div class="old_massage" id="information" ></div> -->
+  <br>
+  <div id="student_alert" class="student_alert"></div>
+  <input id = "student_jpg1" type="image" src="images/efrat1.jpg" class="student_jpg" style="left: 65%; display:None" onclick="ifro_student()"/>
+  <input id="student_jpg2" type="image" src="images/OMER.png" class="student_jpg" style="left: 55%; display:None" onclick="ifro_student2()"/>
+  <input id="student_jpg3" type="image" src="images/MAYAF.png" class="student_jpg" style="left: 45%; display:None" onclick="ifro_student_1()"/>
+  <input id="student_jpg4" type="image" src="images/YUVAL.png" class="student_jpg" style="left: 35%; display:None" onclick="ifro_student3()"/>
+  <input id="student_jpg5" type="image" src="images/NOAM.png" class="student_jpg" style="left: 25%; display:None" onclick="ifro_student4()"/>
+
+
+  <div class="space"></div>
+
+  <div id ="contain_button" class="contain_button">
+  <!--<input class='old_butten_cancel', type = 'button' value='ביטול מפגש' onclick="elder_cancel_meeting()"></input><input id = "entry_btn"; class='old_butten_go'; type = 'button'; value='כניסה למפגש'; onclick="location.href='meeting.html'";></input><input id="old_butten_change" class='old_butten_change', type = 'submit' onclick="location.herf='changemeeting.html';" value='שינוי פרטי מפגש'></input>-->
+  </div>  
+  <br><br>
+    <div class="triangle-up12"></div>
+    <div class="triangle-up21"></div>
+    <div class="triangle-up32"></div>
+    <div class="triangle-up41"></div>
+    <div class="triangle-up52"></div>
+    <div class="triangle-up6"></div>
+    <div class="triangle-up71"></div>
+    <div class="triangle-up8"></div>
+    <div class="triangle-up9"></div>
+    <div class="triangle-up101"></div>
+    <div class="triangle-up11"></div>
+    <!-- <input type="image" src="images/Maya.png" class="student_jpg" style="left: 35%;" onclick="ifro_student()"/> -->
+
+<!-- 
+ <script>
+    document.getElementById("day").innerHTML=localStorage.getItem("day");
+    document.getElementById("hour").innerHTML=localStorage.getItem("hour");
+    document.getElementById("subject").innerHTML=localStorage.getItem("topic");
+  </script> -->
+  <div id="over_sign_in" class="over_sign_in" style="display:None"></div>
+  <div id="div_sign_in" class="div_sign_in" style="display:None">הי אורח! <br> להתחברות הכנס את הפרטים הבאים:</div>
+  <div id="sign_in_text" class="sign_in_text" style="display:None"> שם משתמש: <br><br> סיסמא:</div>
+  <input type="text" id="user_name" class="user_name" style="display:None">
+  <input type="password" id="password" class="password" style="display:None">
+  <button id="ok_sign_in" class="ok_sign_in" onclick="sign_in()" style="display:None">אישור</button>
+</body>
+
+
+
+</html>
+
+
+

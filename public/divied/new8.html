@@ -1,0 +1,43 @@
+<html>
+<head>
+ <title>new</title>
+ <link rel="stylesheet" href="css/styles.css" />
+ <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Amatic+SC" />
+ <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+  <script src="js/database.js"></script>
+ <script src="js/app.js"></script>
+ <meta charset="utf-8" />
+ <script>
+    window.onload = () => {
+      initializeDB();
+      initializeComponentsElders();
+    }
+    </script>
+</head>
+<body dir="rtl" style="background: #D2F2F7; text-align: center;" >
+  <div class="header_new">
+    <img class = "back" src="images/back.jpg">
+    <button class="button_back" onclick="goBack()">חזור </button>
+    <button class="button_new_help">עזרה </button>
+  </div>
+  <div>
+    <img class="new_qu_img" style="position: fixed; top: 11%; left: 72.5%;" src="https://cdn3.iconfinder.com/data/icons/startups-color/64/matter-idea-think-focus-topic-512.png"></img>
+    <p class="new_qu" style="left: 30%;">על איזה נושא תרצה לשוחח?</p>
+    <img class="new_qu_img" style="position: fixed; top: 11%; left: 25%;" src="https://cdn3.iconfinder.com/data/icons/startups-color/64/matter-idea-think-focus-topic-512.png"></img>
+  </div>
+  <div>
+    <button class="option_button" style="position: fixed; top: 32%; left: 75%;"> אומנות </button>
+    <button class="option_button" style="position: fixed; top: 32%; left: 55%;"> מוזיקה </button>
+    <button class="option_button" style="position: fixed; top: 32%; left: 35%;"> בישול </button>
+    <button class="option_button" style="position: fixed; top: 32%; left: 15%;"> היסטוריה </button>
+    <button class="option_button" style="position: fixed; top: 52%; left: 55%;"> ספורט </button>
+    <p style="position: fixed; top: 41.5%; left: 38%; font-family: Amatic SC; font-style: normal; font-weight: bold; font-size: 60px;"> אחר: </p>
+    <input type="text" class="other">
+  <div>
+    <p class="help_text">- לעזרה לחץ על כפתור 'עזרה' בפינה השמאלית למעלה - </p>
+    <button class="next_new" onclick="location.href = 'new6.html'"> סיום </button>
+  </div>
+</body>
+</html>
